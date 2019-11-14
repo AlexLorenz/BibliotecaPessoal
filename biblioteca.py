@@ -13,32 +13,38 @@ class Livro:
         self.categoria = categoria
     '''@property
     def nome(self):
-        return self.nome
-        
+        return self._nome
     @property
     def autor(self):
-        return self.autor
+        return self._autor
     @property
     def editora(self):
-        return self.editora
+        return self._autor
     @property
     def isbn(self):
-        return self.isbn
+        return self._isbn
     @property
     def nr_paginas(self):
-        return self.nr_paginas
+        return self._nr_paginas
     @property
     def categoria(self):
-        return self.categoria'''
+        return self._categoria
+
     def __str__(self):
         return (f'{self.nome} - {self.autor} - {self.editora} - {self.isbn} - {self.nr_paginas} - {self.categoria}')
+'''
 
 
+book1 = Livro('introdução ao gitHub','paper bell & brent Beer','novatec','978-85-7522-414-4',133,'')
+book2 = Livro('teste','teste','teste','teste',155,'teste')
 
-book1 = Livro('introdução ao gitHub',
-               'paper bell & brent Beer',
-               'novatec',
-              '978-85-7522-414-4',
-              133,'')
+#print(book1)
+#print(book2)
 
-print(book1)
+lista = [book1, book2]
+
+@app.route('/teste')
+def index():
+    return render_template('novo.html', titulo = 'Biblioteca')
+
+app.run(debug=True)

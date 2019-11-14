@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jogoteca</title>
+    <title>Biblioteca Pessoal</title>
   </head>
   <body>
     <div class="container">
@@ -14,18 +14,24 @@
         <thead>
             <tr>
                 <th>Nome</th>
+                <th>Autor</th>
+                <th>Editora</th>
+                <th>ISBS</th>
+                <th>Num.Páginas</th>
                 <th>Categoria</th>
-                <th>Console</th>
             </tr>
         </thead>
         <tbody>
-        {% for jogo in jogos %}
+        <!--{% for livro in biblioteca %}
                         <tr>
-                            <td>{{ jogo.nome }}</td>
-                            <td>{{ jogo.categoria }}</td>
-                            <td>{{ jogo.console }}</td>
+                            <td>{{ livro.nome }}</td>
+                            <td>{{ livro.autor }}</td>
+                            <td>{{ livro.editora }}</td>
+                            <td>{{ livro.isbn }}</td>
+                            <td>{{ livro.nr_paginas}}</td>
+                            <td>{{ livro.categoria }}</td>
                         </tr>
-        {% endfor %}
+        {% endfor %}-->
         </tbody>
         </table>
     </div>
