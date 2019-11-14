@@ -5,12 +5,13 @@ app = Flask(__name__)
 
 class Livro:
     def __init__(self, nome, autor, editora, ISBN, nr_paginas, categoria):
-        self.nome = nome
-        self.autor = autor
-        self.editora = editora
-        self.isbn = ISBN
-        self.nr_paginas = nr_paginas
-        self.categoria = categoria
+        self.nome = str(nome).title()
+        self.autor = str(autor).title()
+        self.editora = str(editora).title()
+        self.isbn = str(ISBN)
+        self.nr_paginas = int(nr_paginas)
+        self.categoria = str(categoria).title()
+
     '''@property
     def nome(self):
         return self._nome
@@ -45,6 +46,6 @@ lista = [book1, book2]
 
 @app.route('/teste')
 def index():
-    return render_template('novo.html', titulo = 'Biblioteca')
+    return render_template('index.html', titulo = 'Biblioteca', biblioteca=lista)
 
 app.run(debug=True)
