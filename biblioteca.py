@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
@@ -20,7 +20,7 @@ class Livro:
         return self._autor
     @property
     def editora(self):
-        return self._autor
+        return self._editora
     @property
     def isbn(self):
         return self._isbn
@@ -62,6 +62,6 @@ def adicionar():
     categoria = request.form['categoria']
     book = Livro(nome, autor, editora, isbn, nr_paginas, categoria)
     lista.append(book)
-    return render_template('index.html', titulo = 'Biblioteca', biblioteca = lista)
+    return redirect('/')
 
 app.run(debug=True)
