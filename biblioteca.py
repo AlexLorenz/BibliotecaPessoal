@@ -36,7 +36,7 @@ class Livro:
 '''
 
 
-book1 = Livro('introdução ao gitHub','paper bell & brent Beer','novatec','978-85-7522-414-4',133,'')
+book1 = Livro('introdução ao gitHub','paper bell & brent Beer','novatec','978-85-7522-414-4',133,'pROGRAMAÇÃO')
 book2 = Livro('teste','teste','teste','teste',155,'teste')
 
 #print(book1)

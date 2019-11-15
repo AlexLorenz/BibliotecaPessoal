@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Biblioteca Pessoal</title>
-  </head>
-  <body>
-    <div class="container">
-        <div class="page-header">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../static/bootstrap.css">
+        <title>Biblioteca Pessoal</title>
+    </head>
+    <body>
+        <div class="container">
             <h1>{{ titulo }}</h1>
-        </div>
-        <table class="table table-striped table-responsive table-bordered">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Autor</th>
-                <th>Editora</th>
-                <th>ISBS</th>
-                <th>Num.Páginas</th>
-                <th>Categoria</th>
-            </tr>
-        </thead>
-        <tbody>
-        <{% for livro in biblioteca %}
+            <table class="table table-striped table-responsive table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Autor</th>
+                        <th>Editora</th>
+                        <th>ISBS</th>
+                        <th>Num.Páginas</th>
+                        <th>Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <{% for livro in biblioteca %}
                         <tr>
                             <td>{{ livro.nome }}</td>
                             <td>{{ livro.autor }}</td>
@@ -31,9 +30,9 @@
                             <td>{{ livro.nr_paginas}}</td>
                             <td>{{ livro.categoria }}</td>
                         </tr>
-        {% endfor %}>
-        </tbody>
-        </table>
-    </div>
-  </body>
+                    {% endfor %}>
+                </tbody>
+            </table>
+        </div>
+    </body>
 </html>
