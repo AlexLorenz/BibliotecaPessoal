@@ -44,8 +44,24 @@ book2 = Livro('teste','teste','teste','teste',155,'teste')
 
 lista = [book1, book2]
 
-@app.route('/teste')
+@app.route('/')
 def index():
     return render_template('index.html', titulo = 'Biblioteca', biblioteca=lista)
+
+@app.route('/novo')
+def novo():
+    return render_template('novo.html', titulo = 'Adiciona livro')
+
+@app.route('/adicionar', methods=['POST', ])
+def adicionar():
+    nome = request.form['nome']
+    autor = request.form['autor']
+    editora = request.form['editora']
+    isbn = request.form['isbn']
+    nr_paginas = request.form['nr_paginas']
+    categoria = request.form['categoria']
+    book = Livro(nome, autor, editora, isbn, nr_paginas, categoria)
+    lista.append(book)
+    return render_template('index.html', titulo = 'Biblioteca', biblioteca = lista)
 
 app.run(debug=True)

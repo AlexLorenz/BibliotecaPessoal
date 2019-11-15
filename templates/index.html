@@ -21,7 +21,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <{% for livro in biblioteca %}
+                    {% for livro in biblioteca %}
                         <tr>
                             <td>{{ livro.nome }}</td>
                             <td>{{ livro.autor }}</td>
@@ -30,7 +30,7 @@
                             <td>{{ livro.nr_paginas}}</td>
                             <td>{{ livro.categoria }}</td>
                         </tr>
-                    {% endfor %}>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
