@@ -5,14 +5,14 @@ app = Flask(__name__)
 
 class Livro:
     def __init__(self, nome, autor, editora, ISBN, nr_paginas, categoria):
-        self.nome = str(nome).title()
-        self.autor = str(autor).title()
-        self.editora = str(editora).title()
-        self.isbn = str(ISBN)
-        self.nr_paginas = int(nr_paginas)
-        self.categoria = str(categoria).title()
+        self._nome = str(nome).title()
+        self._autor = str(autor).title()
+        self._editora = str(editora).title()
+        self._isbn = str(ISBN)
+        self._nr_paginas = int(nr_paginas)
+        self._categoria = str(categoria).title()
 
-    '''@property
+    @property
     def nome(self):
         return self._nome
     @property
@@ -33,7 +33,7 @@ class Livro:
 
     def __str__(self):
         return (f'{self.nome} - {self.autor} - {self.editora} - {self.isbn} - {self.nr_paginas} - {self.categoria}')
-'''
+
 
 
 book1 = Livro('introdução ao gitHub','paper bell & brent Beer','novatec','978-85-7522-414-4',133,'pROGRAMAÇÃO')
