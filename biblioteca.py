@@ -52,6 +52,10 @@ def index():
 def novo():
     return render_template('novo.html', titulo = 'Adiciona livro')
 
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
 @app.route('/adicionar', methods=['POST', ])
 def adicionar():
     nome = request.form['nome']
