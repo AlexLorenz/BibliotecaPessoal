@@ -8,27 +8,32 @@ lista = [book1, book2]
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
     return render_template('index.html', titulo = 'Biblioteca', biblioteca=lista)
+
 
 @app.route('/novo')
 def novo():
     return render_template('novo.html', titulo = 'Adiciona livro')
 
+
 @app.route('/login')
 def login():
     return render_template('login.html')
 
+
 @app.route('/autenticar', methods=['POST',])
 def autenticar():
     if 'mestra' == request.form['senha']:
-        session['usuario_logado'] = request.form['usuario']
-        flash(request.form['usuario'] + ' logou com sucesso!')
+        #session['usuario_logado'] = request.form['usuario']
+        #flash(request.form['usuario'] + ' logou com sucesso!')
         return redirect('/')
     else:
-        flash('Não foi possível logar, tente novamente!')
+        #flash('Não foi possível logar, tente novamente!')
         return redirect('/login')
+
 
 @app.route('/adicionar', methods=['POST', ])
 def adicionar():
@@ -41,5 +46,6 @@ def adicionar():
     book = Livro(nome, autor, editora, isbn, nr_paginas, categoria)
     lista.append(book)
     return redirect('/')
+
 
 app.run(debug=True)

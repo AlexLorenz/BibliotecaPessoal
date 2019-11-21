@@ -6,9 +6,9 @@
                 <ul id="messages" class="list-unstyled">
                     {% for message in messages %}
                         <li class="alert alert-success">{{ message }}</li>
-                    {% enffor%}
+                    {% endfor%}
                 </ul>
-            {% end if%}
+            {% endif %}
         {% endwith %}
         <h1>Faça seu login</h1>
         <form method="post" action="/autenticar">
@@ -23,4 +23,4 @@
             <button type="submit" class="btn btn-primary btn-entrar">Entrar</button>
         </form>
     </div>
-{% endblock%}
+{% endblock %}
