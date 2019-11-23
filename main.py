@@ -8,6 +8,7 @@ lista = [book1, book2]
 
 app = Flask(__name__)
 
+app.secret_key = 'alura'
 
 @app.route('/')
 def index():
@@ -16,22 +17,30 @@ def index():
 
 @app.route('/novo')
 def novo():
-    return render_template('novo.html', titulo = 'Adiciona livro')
+    if 'usuario_logado' not in session or session['usuario_logado'] == None:
+        return redirect('/login')
+    return render_template('novo.html', titulo='Adiciona livro')
 
 
 @app.route('/login')
 def login():
-    return render_template('login.html')
+    return render_template('login.html', titulo='Login')
 
+
+@app.route('/logout')
+def logout():
+    session['usuario_logado'] = None
+    flash('Nenhum usuário logado')
+    return redirect('/')
 
 @app.route('/autenticar', methods=['POST',])
 def autenticar():
     if 'mestra' == request.form['senha']:
-        #session['usuario_logado'] = request.form['usuario']
-        #flash(request.form['usuario'] + ' logou com sucesso!')
+        session['usuario_logado'] = request.form['usuario']
+        flash(request.form['usuario'] + ' logou com sucesso!')
         return redirect('/')
     else:
-        #flash('Não foi possível logar, tente novamente!')
+        flash('Não foi possível logar, tente novamente!')
         return redirect('/login')
 
 
