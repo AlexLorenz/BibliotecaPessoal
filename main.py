@@ -18,12 +18,13 @@ def index():
 @app.route('/novo')
 def novo():
     if 'usuario_logado' not in session or session['usuario_logado'] == None:
-        return redirect('/login')
+        return redirect('/login?proximo=novo')
     return render_template('novo.html', titulo='Adiciona livro')
 
 
 @app.route('/login')
 def login():
+    proxima = request.args('proxima')
     return render_template('login.html', titulo='Login')
 
 
